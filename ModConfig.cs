@@ -52,6 +52,7 @@ namespace ImmersiveWoodchopping
             api.World.Config.SetBool(Constants.ModId + ":DamageToolOnChop", config.DamageToolOnChop);
             api.World.Config.SetInt(Constants.ModId + ":IntsaChopMinTier", config.IntsaChopMinTier);
             api.World.Config.SetBool(Constants.ModId + ":DisableGridRecipe", config.DisableGridRecipe);
+            api.World.Config.SetInt(Constants.ModId + ":DropAmount", config.DropAmount);
         }
 
         public ModConfig Clone()

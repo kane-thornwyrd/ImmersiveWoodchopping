@@ -91,7 +91,7 @@ namespace ImmersiveWoodchopping
             foreach (var grecipe in api.World.GridRecipes)
             {
                 if (!grecipe.Output.Code.Path.StartsWith("firewood")) continue;
-                if (grecipe.resolvedIngredients.Length != 2) continue;
+                if (grecipe.ResolvedIngredients.Length != 2) continue;
 
                 bool flag = false;
                 if (grecipe.Width == 1 && grecipe.Height == 2)
@@ -109,7 +109,7 @@ namespace ImmersiveWoodchopping
                 string icodefirstpart;
                 bool enabled = !api.World.Config.GetBool(Constants.ModId + ":DisableGridRecipe", true);
 
-                foreach (CraftingRecipeIngredient ingredient in grecipe.resolvedIngredients)
+                foreach (CraftingRecipeIngredient ingredient in grecipe.ResolvedIngredients)
                 {
                     icode = ingredient.Code;
                     ipath = icode.Path;
@@ -188,7 +188,6 @@ namespace ImmersiveWoodchopping
                         {
                             { "hideInteractionHelpInSurvival", new JValue(false) },
                             { "drop", new JValue(firewoodResult.Code.ToString()) },
-                            { "dropAmount", new JValue(firewoodResult.Quantity) },
                         };
                     behaviour.Initialize(new JsonObject(jobj));
 

@@ -116,7 +116,7 @@ namespace ImmersiveWoodchopping
                                 blockAccessor.MarkBlockDirty(position, byPlayer);
                                 Item drops = world.GetItem(blockBehavior.drop);
 
-                                for (int i = 0; i < blockBehavior.dropAmount; i++)
+                                for (int i = 0; i < world.Config.GetInt(Constants.ModId + ":DropAmount"); i++)
                                 {
                                     world.SpawnItemEntity(new ItemStack(drops, 1), position.ToVec3d().Add(new Vec3d(0.5 + (world.Rand.NextDouble() < 0.5 ? 0.4 : -0.4), 0.4, 0.5 + (world.Rand.NextDouble() < 0.5 ? 0.4 : -0.4))));
                                 }
